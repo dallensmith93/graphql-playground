@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+
+# build artifacts
+dist/
+build/
+coverage/
+
+# caches
+.cache/
+.parcel-cache/
+.turbo/
+.vite/
+.vitest/
+.pytest_cache/
+.eslintcache
+*.tsbuildinfo
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.*
+!.env.example
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
