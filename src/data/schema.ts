@@ -29,3 +29,9 @@ export const mockData = {
     { id: "p2", title: "Typed Query Fragments", authorId: "2" },
   ],
 };
+
+export const sampleQueries = [
+  `query GetUsers { users { id name role } }`,
+  `query GetUser { user(id: "1") { id name role } }`,
+  `query GetPosts { posts { id title authorId } }`,
+];

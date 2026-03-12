@@ -1,24 +1,24 @@
 type QueryEditorProps = {
   query: string;
-  onQueryChange: (value: string) => void;
-  onRunQuery: () => void;
+  onChange: (value: string) => void;
+  onRun: () => void;
   parseErrors: string[];
 };
 
-export default function QueryEditor({ query, onQueryChange, onRunQuery, parseErrors }: QueryEditorProps) {
+export default function QueryEditor({ query, onChange, onRun, parseErrors }: QueryEditorProps) {
   return (
-    <section className="panel query-editor">
-      <div className="panel-header">
+    <section className="panel editor-panel">
+      <div className="panel-head">
         <h2>Query Editor</h2>
-        <button type="button" onClick={onRunQuery}>
-          Run Query
+        <button type="button" onClick={onRun}>
+          Run
         </button>
       </div>
 
       <textarea
         value={query}
-        onChange={(event) => onQueryChange(event.target.value)}
         spellCheck={false}
+        onChange={(event) => onChange(event.target.value)}
         aria-label="GraphQL query editor"
       />
 

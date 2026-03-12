@@ -1,21 +1,19 @@
-import type { ParseResult } from "../engine/queryParser";
+import type { ParseResult } from "../engine/parser";
 
 type ResultViewerProps = {
-  output: Record<string, unknown>;
-  parseResult: ParseResult;
+  result: Record<string, unknown>;
+  parse: ParseResult;
 };
 
-export default function ResultViewer({ output, parseResult }: ResultViewerProps) {
+export default function ResultViewer({ result, parse }: ResultViewerProps) {
   return (
-    <section className="panel result-viewer">
+    <section className="panel result-panel">
       <h2>Result Viewer</h2>
-
-      <div className="result-meta">
-        <span>Operation: {parseResult.ok && parseResult.parsed ? parseResult.parsed.operationType : "invalid"}</span>
-        <span>Root Field: {parseResult.ok && parseResult.parsed ? parseResult.parsed.rootField : "-"}</span>
+      <div className="meta-row">
+        <span>Operation: {parse.ok ? parse.parsed.operationType : "invalid"}</span>
+        <span>Root: {parse.ok ? parse.parsed.rootField : "-"}</span>
       </div>
-
-      <pre>{JSON.stringify(output, null, 2)}</pre>
+      <pre>{JSON.stringify(result, null, 2)}</pre>
     </section>
   );
 }
